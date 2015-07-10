@@ -1,3 +1,19 @@
+<?php
+/*
+$primary-color-light = #0097A7;
+$primary-color:        "#0097A7", "#00BCD4", "#B2EBF2", "#FFFFFF",;
+$primary-color-light:  #B2EBF2;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #536DFE;
+$primary-text-color:   #212121;
+$secondary-text-color: #727272;
+$divider-color:        #B6B6B6;
+*/
+
+$colors = array(1 => "#0097A7", 2 => "#00BCD4", 3 => "#B2EBF2", 4 => "#FFFFFF", 5 => "#536DFE", 6 => "#212121", 7 => "#727272", 8 => "#B6B6B6");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -15,13 +31,33 @@
 		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
+	<style>
+
+	<?php foreach ($colors as $k => $v): ?>
+	.color-<?php echo $k; ?> { background: <?php echo $v; ?>; color: <?php echo $v; ?>; }
+	<?php endforeach; ?>
+
+<?php /*
+
+		.color-1 { background: #333; color: #333;}
+		.color-2 { background: #f0f0f0; color: #f0f0f0; }
+		.color-3 { background: #c0c3d5; color: #c0c3d5; }
+		.color-4 { background: #5FA1E0; color: #5FA1E0; }
+		.color-5 { background: #c1d5c0; color: #c1d5c0; }
+		.color-6 { background: #47AE73; color: #47AE73; }
+		.color-7 { background: #eae7c4; color: #eae7c4; }
+		.color-8 { background: #FB6964; color: #FB6964; }
+*/ ?>
+	</style>
 		<div class="container">
 			<header class="codrops-header">
-				<div class="codrops-links">
+				<?php /*
+                <div class="codrops-links">
 					<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Development/AnimatedGridLayout/" title="Previous Demo"><span>Previous Demo</span></a>
 					<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=23913" title="Back to the article"><span>Back to the Codrops article</span></a>
 				</div>
 				<h1>Interactive Coloring Concept <span>A fun drag &amp; drop experiment</span></h1>
+ */ ?>
 			</header>
 			<div class="content">
 				<div class="mockup-browser">
@@ -223,7 +259,18 @@
 
 			<div class="customizer">
 				<ul class="color-tool">
-					<li class="color-1"><div class="drag-element" data-color="#333"><div class="drop color-1"></div><i class="drop-helper-1 color-1"></i><i class="drop-helper-2 color-1"></i><i class="drop-helper-3 color-1"></i><i class="drop-helper-4 color-1"></i></div></li>
+					<?php foreach ($colors as $k => $v): ?>
+						<li class="color-<?php echo $k; ?>">
+							<div class="drag-element" data-color="<?php echo $v; ?>">
+								<div class="drop color-<?php echo $k; ?>"></div>
+								<i class="drop-helper-1 color-<?php echo $k; ?>"></i>
+								<i class="drop-helper-2 color-<?php echo $k; ?>"></i>
+								<i class="drop-helper-3 color-<?php echo $k; ?>"></i>
+								<i class="drop-helper-4 color-<?php echo $k; ?>"></i>
+							</div>
+						</li>
+					<?php endforeach; ?>
+<?php /*					<li class="color-1"><div class="drag-element" data-color="#333"><div class="drop color-1"></div><i class="drop-helper-1 color-1"></i><i class="drop-helper-2 color-1"></i><i class="drop-helper-3 color-1"></i><i class="drop-helper-4 color-1"></i></div></li>
 					<li class="color-2"><div class="drag-element" data-color="#f0f0f0"><div class="drop color-2"></div><i class="drop-helper-1 color-2"></i><i class="drop-helper-2 color-2"></i><i class="drop-helper-3 color-2"></i><i class="drop-helper-4 color-2"></i></div></li>
 					<li class="color-3"><div class="drag-element" data-color="#c0c3d5"><div class="drop color-3"></div><i class="drop-helper-1 color-3"></i><i class="drop-helper-2 color-3"></i><i class="drop-helper-3 color-3"></i><i class="drop-helper-4 color-3"></i></div></li>
 					<li class="color-4"><div class="drag-element" data-color="#5FA1E0"><div class="drop color-4"></div><i class="drop-helper-1 color-4"></i><i class="drop-helper-2 color-4"></i><i class="drop-helper-3 color-4"></i><i class="drop-helper-4 color-4"></i></div></li>
@@ -231,20 +278,12 @@
 					<li class="color-6"><div class="drag-element" data-color="#47AE73"><div class="drop color-6"></div><i class="drop-helper-1 color-6"></i><i class="drop-helper-2 color-6"></i><i class="drop-helper-3 color-6"></i><i class="drop-helper-4 color-6"></i></div></li>
 					<li class="color-7"><div class="drag-element" data-color="#EAE7C4"><div class="drop color-7"></div><i class="drop-helper-1 color-7"></i><i class="drop-helper-2 color-7"></i><i class="drop-helper-3 color-7"></i><i class="drop-helper-4 color-7"></i></div></li>
 					<li class="color-8"><div class="drag-element" data-color="#FB6964"><div class="drop color-8"></div><i class="drop-helper-1 color-8"></i><i class="drop-helper-2 color-8"></i><i class="drop-helper-3 color-8"></i><i class="drop-helper-4 color-8"></i></div></li>
-					<li><button class="reset-button" title="Reser colors">Reset colors</button></li>
+ */ ?>
+					<li><button class="reset-button" title="Reset colors">Reset colors</button></li>
 				</ul>
 			</div>
 			<!-- Related demos -->
 			<section class="content content--related">
-				<p>If you enjoyed this demo you might also like:</p>
-				<a class="media-item" href="http://tympanus.net/Development/DragDropInteractions/">
-					<img class="media-item__img" src="img/related/DragDropInteractions.png">
-					<h3 class="media-item__title">Drag and Drop Interaction Ideas</h3>
-				</a>
-				<a class="media-item" href="http://tympanus.net/Development/SVGDrawingAnimation/">
-					<img class="media-item__img" src="img/related/SVGDrawingAnimation.png">
-					<h3 class="media-item__title">SVG Drawing Animation</h3>
-				</a>
 			</section>
 			<div class="info-wrap">
 				<div class="info">
